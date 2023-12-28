@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@use './brand-palettes';
+
+@include mat.core();
+
+$frontend-primary: mat.define-palette(brand-palettes.$brand-primary-palette);
+$frontend-accent: mat.define-palette(brand-palettes.$brand-secondary-palette, 200, 100, 400);
+
+$frontend-warn: mat.define-palette(brand-palettes.$brand-accent-palette);
+
+$frontend-theme: mat.define-light-theme((
+  color: (
+    primary: $frontend-primary,
+    accent: $frontend-accent,
+    warn: $frontend-warn,
+  )
+));
+
+@include mat.all-component-themes($frontend-theme);
