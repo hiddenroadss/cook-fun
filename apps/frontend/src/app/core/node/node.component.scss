@@ -3,18 +3,49 @@
 
 :host {
     border-radius: 50%;
-    padding: 30px;
-    max-width: 150px;
-    display: block;
-    background-color: white;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid white;
+    background: no-repeat center/100% url('/assets/images/syrnyky.png');
+    color: white;
+    cursor: pointer;
+    position: relative;
+    h3 {
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: background 0.3s ease-in-out; /* This will animate the shadow on hover */
+        border-radius: 50%;
+    }
+
+    &:hover {
+        &::before {
+            background: rgba(0, 0, 0, 0.5);  
+        }
+        h3 {
+            opacity: 1;
+            z-index: 10;
+        }
+    }
 
     &.selected {
-        background-color: map.get(brand-palettes.$brand-secondary-palette, 200);
+        border: 5px solid map.get(brand-palettes.$brand-secondary-palette, 200);
 
     }
 
     &.disabled {
-    background-color: gray;
+        border: 5px solid gray;
     }
 }
 
@@ -24,7 +55,5 @@
     justify-content: center;
     align-items: center;
 
-    & p {
-        margin: 0;
-    }
+   
 }
