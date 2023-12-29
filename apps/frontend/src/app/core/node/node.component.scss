@@ -1,0 +1,30 @@
+@use 'src/styles/brand-palettes';
+@use 'sass:map';
+
+:host {
+    border-radius: 50%;
+    padding: 30px;
+    max-width: 150px;
+    display: block;
+    background-color: white;
+
+    &.selected {
+        background-color: map.get(brand-palettes.$brand-secondary-palette, 200);
+
+    }
+
+    &.disabled {
+    background-color: gray;
+    }
+}
+
+.node {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+        margin: 0;
+    }
+}
