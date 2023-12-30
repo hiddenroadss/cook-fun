@@ -1,25 +1,3 @@
 
-
-<div  class="container">
-  <svg [attr.width]="1000" [attr.height]="1000">
-    <!-- iterate over the nodes array and draw a line between subsequent nodes -->
-    <ng-container *ngFor="let node of nodes; let i = index; let isLast=last">
-      <line *ngIf="!isLast" 
-        [attr.x1]="coordinates(node, i).x + 115 / 2" 
-        [attr.y1]="coordinates(node, i).y + 115 / 2" 
-        [attr.x2]="coordinates(nodes[i + 1], i + 1).x + 115 / 2"
-        [attr.y2]="coordinates(nodes[i + 1], i + 1).y + 115 / 2" 
-        stroke="white" stroke-dasharray="5,5" stroke-width="5"/>
-    </ng-container>
-  </svg>
-  <ng-container *ngFor="let node of nodes; let i = index">
-    <app-node 
-    [value]="node" 
-    [style.left.px]="coordinates(node, i).x" 
-    [style.top.px]="coordinates(node, i).y"
-    [isSelected]="currentNodeIndex === i"
-    [disabled]="isDisabled(i)"
-    (next)="goToNextNode($event, i)">
-  </app-node>
-  </ng-container>
-</div>
+<app-header></app-header>
+<router-outlet></router-outlet>

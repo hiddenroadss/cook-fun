@@ -1,0 +1,35 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    [expanded]="true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Рівень Студент
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am 
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile
+          *ngFor="let tile of tiles"c
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows"
+            [style.background]="'url(' + tile.image + ') no-repeat center/99%'">
+            <a routerLink="/mission"><h3>{{tile.text}}</h3></a>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Рівень Початківець
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am 
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>

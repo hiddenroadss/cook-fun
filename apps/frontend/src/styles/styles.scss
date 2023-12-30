@@ -10,3 +10,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing:
 body {
     background-color: map.get(brand-palettes.$brand-primary-palette, 500);
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
